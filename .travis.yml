@@ -6,6 +6,13 @@ language: python
 python: "2.7"
 addons:
   postgresql: "9.6"
+  apt:
+    packages:
+      - postgresql-9.6
+      - postgresql-client-9.6
+      - postgresql-contrib
+services:
+  - postgresql
 
 install:
   # - pip install dopy
