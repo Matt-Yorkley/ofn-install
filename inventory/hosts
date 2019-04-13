@@ -8,7 +8,7 @@ local_vagrant ansible_host=127.0.0.1 ansible_user=vagrant ansible_port=2222 ansi
 local.ofn.org
 
 [travis]
-travis ansible_local_tmp=/tmp/${USER}/ansible
+travis remote_tmp=/tmp/${USER}/ansible
 
 [local:children]
 vagrant

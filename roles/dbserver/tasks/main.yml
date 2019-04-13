@@ -6,8 +6,8 @@
     state=present
   become: yes
   with_items:
-    - postgresql
-    - postgresql-client
+    - postgresql-9.6
+    - postgresql-client-9.6
     - postgresql-contrib
 
 - name: create db user
