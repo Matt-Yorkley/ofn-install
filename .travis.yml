@@ -4,6 +4,8 @@ dist: xenial
 cache: bundler
 language: python
 python: "2.7"
+addons:
+  postgresql: "9.6"
 
 install:
   # - pip install dopy
