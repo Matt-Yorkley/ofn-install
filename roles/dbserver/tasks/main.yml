@@ -11,6 +11,12 @@
     group: postgres
   become: yes
 
+- name: install wal2json module
+  include_role:
+    name: libre_ops.wal2json
+  vars:
+    wal2json_set_preload_libararies: false
+
 - name: add postgres conf.d directory
   file:
     dest: "{{ postgresql_config_path }}/conf.d"
