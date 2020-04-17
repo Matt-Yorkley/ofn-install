@@ -15,6 +15,7 @@
       become: yes
       raw: apt-get update -qq && apt-get install -qq python2.7
       tags: skip_ansible_lint
+      when: inventory_hostname != 'local_travis'
 
 # Add the default user and ssh keys as root
 - name: set up default_user
