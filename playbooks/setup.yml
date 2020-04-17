@@ -26,8 +26,8 @@
     - debug:
         msg: "{{ ansible_default_ipv4.address }}"
 
-    - debug:
-        msg: "{{ hostvars[inventory_hostname] }}"
+#    - debug:
+#        msg: "{{ hostvars[inventory_hostname] }}"
 
     - debug:
         msg: "{{ ansible_playbook_python }}"
