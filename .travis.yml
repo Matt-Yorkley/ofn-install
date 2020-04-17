@@ -4,8 +4,8 @@ dist: xenial
 cache: bundler
 language: python
 python: "2.7"
-#virtualenv:
-#  system_site_packages: true
+virtualenv:
+  system_site_packages: true
 services:
   - postgresql
 addons:
