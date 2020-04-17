@@ -15,6 +15,7 @@ addons:
       - postgresql-9.5
       - postgresql-client-9.5
       - postgresql-server-dev-9.5
+      - python-2.7
 
 env:
   - task: LINT
