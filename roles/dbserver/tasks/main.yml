@@ -43,6 +43,7 @@
   become_user: "{{ unicorn_user }}"
 
 - import_tasks: wal2json.yml
+  delegate_to: "{{ postgres_delegate_host }}"
   tags: wal2json
 
 - name: flush handlers before proceeding
