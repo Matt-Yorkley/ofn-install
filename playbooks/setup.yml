@@ -21,6 +21,15 @@
 - name: set up default_user
   hosts: ofn_servers
   remote_user: root
+
+  pre_tasks:
+    - debug:
+        msg: "{{ ansible_default_ipv4.address }}"
+    - debug:
+        msg: "{{ hostvars[inventory_hostname] }}"
+    - debug:
+        msg: "{{ ansible_playbook_python }}"
+
   roles:
     - role: default_user
       become: yes
