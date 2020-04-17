@@ -25,10 +25,26 @@
   pre_tasks:
     - debug:
         msg: "{{ ansible_default_ipv4.address }}"
+
     - debug:
         msg: "{{ hostvars[inventory_hostname] }}"
+
     - debug:
         msg: "{{ ansible_playbook_python }}"
+
+    - name: test delegation with apt
+      apt:
+        name: sudo
+      become: yes
+      delegate_to: "{{ postgres_delegate_host }}"
+
+    - name: test delegation retarting postgres
+      service:
+        name: postgresql
+        state: restarted
+      become: yes
+      become_user: root
+      delegate_to: "{{ postgres_delegate_host }}"
 
   roles:
     - role: default_user
