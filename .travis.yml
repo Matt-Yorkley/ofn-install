@@ -4,10 +4,17 @@ dist: xenial
 cache: bundler
 language: python
 python: "2.7"
+#virtualenv:
+#  system_site_packages: true
 services:
   - postgresql
 addons:
   postgresql: "9.5"
+  apt:
+    packages:
+      - postgresql-9.5
+      - postgresql-client-9.5
+      - postgresql-server-dev-9.5
 
 env:
   - task: LINT
@@ -35,7 +42,10 @@ before_install:
     fi
 
 install:
-  - pip install -r requirements.txt
+  - sudo add-apt-repository -y ppa:ansible/ansible-2.9
+  - sudo apt update -q
+  - sudo apt install -y ansible python-apt
+  - pip install 'ansible-lint==4.1.0'
 
 script:
   - bin/setup
@@ -45,5 +55,5 @@ script:
     fi
   - |
     if [ "${task}" == "BUILD" ]; then
-      ansible-playbook tests/suite.yml --limit travis --connection local
+      ansible-playbook tests/suite.yml --limit travis --connection local -vv
     fi
