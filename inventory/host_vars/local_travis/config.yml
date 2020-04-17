@@ -22,4 +22,4 @@ smtp_password: 'password'
 
 postgres_delegate_host: localhost
 #postgres_delegate_host: "{{ ansible_default_ipv4.address }}"
-#ansible_python_interpreter: "{{ ansible_playbook_python }}"
+ansible_python_interpreter: "{{ ansible_playbook_python }}"
