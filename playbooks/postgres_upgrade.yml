@@ -28,9 +28,9 @@
         state: stopped
       become: yes
 
-    - name: stop delayed job
+    - name: stop sidekiq
       service:
-        name: delayed_job_{{ app }}
+        name: sidekiq
         state: stopped
       become: yes
 
@@ -61,9 +61,9 @@
         state: started
       become: yes
 
-    - name: restart delayed job
+    - name: restart sidekiq
       service:
-        name: delayed_job_{{ app }}
+        name: sidekiq
         state: started
       become: yes
 
