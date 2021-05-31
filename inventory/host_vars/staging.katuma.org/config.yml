@@ -6,6 +6,8 @@ admin_email: info@katuma.org
 
 mail_domain: katuma.org
 
+postgresql_version: 10
+
 users_sysadmin:
   - "{{ core_devs }}"
   - dani
